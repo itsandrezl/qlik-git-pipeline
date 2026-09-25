@@ -1,0 +1,8 @@
+// ── INCLUDE: Conexoes.qvs ─────────────────────────────────────────────────────
+// Centraliza as strings de conexão usadas por todos os apps.
+// Altere aqui e a mudança propaga para todos os scripts via $(Include=).
+//
+// Como usar em um app:
+//   $(Must_Include=lib://CNXDIR-GitHub/includes/Conexoes.qvs)
+
+LIB CONNECT TO 'NomeDaConexao';   // substitua pelo nome real da sua conexão QMC

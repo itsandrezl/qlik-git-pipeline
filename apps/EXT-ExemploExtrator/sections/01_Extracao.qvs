@@ -1,0 +1,16 @@
+// Extração da tabela de origem para QVD.
+// Padrão: lê da fonte, aplica apenas filtros básicos, grava QVD bruto.
+// Transformações ficam no TRF correspondente.
+
+Pedidos_RAW:
+LOAD
+    id_pedido,
+    id_cliente,
+    data_pedido,
+    status,
+    valor_total
+FROM [lib://QVD-RAW/Pedidos.qvd] (qvd)
+;
+
+STORE Pedidos_RAW INTO [lib://QVD-RAW/Pedidos.qvd] (qvd);
+DROP TABLE Pedidos_RAW;

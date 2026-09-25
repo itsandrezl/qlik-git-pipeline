@@ -1,0 +1,15 @@
+// ── INCLUDE: RegrasDeNegocio.qvs ─────────────────────────────────────────────
+// Variáveis e mapeamentos de regras de negócio compartilhados.
+// Centralize aqui qualquer lógica que mude com o tempo (ex: metas, faixas).
+
+// Exemplo de variável global
+LET vMetaConversao = 0.15;   // 15% de conversão esperada
+
+// Exemplo de mapeamento de categorias
+MapCategoria:
+MAPPING LOAD * INLINE [
+    Codigo, Descricao
+    1,      Categoria A
+    2,      Categoria B
+    3,      Categoria C
+];

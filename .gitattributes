@@ -1,0 +1,6 @@
+# Força LF no repositório para evitar problemas de encoding entre Windows e Linux
+* text=auto
+
+# Arquivos Qlik — preserva encoding UTF-8 com BOM
+*.qvs text eol=lf
+*.qvd binary

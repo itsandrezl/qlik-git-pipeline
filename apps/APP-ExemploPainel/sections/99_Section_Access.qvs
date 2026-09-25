@@ -1,0 +1,11 @@
+// Section Access — controle de acesso por perfil.
+// ATENÇÃO: nunca commitar credenciais reais. Use variáveis de ambiente
+// ou conexão QMC para injetar os valores em tempo de carga.
+
+Section Access;
+LOAD * INLINE [
+    ACCESS, USERID,   OMIT
+    ADMIN,  ADMIN,
+    USER,   USUARIO1, valor_total
+];
+Section Application;

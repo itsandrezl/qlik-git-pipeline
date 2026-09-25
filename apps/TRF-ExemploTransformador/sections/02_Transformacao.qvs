@@ -1,0 +1,19 @@
+// Transformação: lê QVD bruto, aplica regras, grava QVD tratado.
+
+$(Must_Include=lib://CNXDIR-GitHub/includes/RegrasDeNegocio.qvs)
+
+Pedidos:
+LOAD
+    id_pedido,
+    id_cliente,
+    data_pedido,
+    Date(data_pedido, 'DD/MM/YYYY')     AS Data_Formatada,
+    ApplyMap('MapCategoria', status, 'Outros') AS Status_Descricao,
+    valor_total,
+    valor_total * $(vMetaConversao)     AS Valor_Meta
+FROM [lib://QVD-RAW/Pedidos.qvd] (qvd)
+WHERE status <> 'CANCELADO'
+;
+
+STORE Pedidos INTO [lib://QVD-GOLD/Pedidos.qvd] (qvd);
+DROP TABLE Pedidos;

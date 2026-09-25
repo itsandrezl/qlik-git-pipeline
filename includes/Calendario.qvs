@@ -1,0 +1,26 @@
+// ── INCLUDE: Calendario.qvs ──────────────────────────────────────────────────
+// Tabela de calendário mestre reutilizável.
+// Gera dimensões de data (Ano, Trimestre, Mês, Semana, Dia) a partir de
+// um intervalo definido pelas variáveis vDataMin e vDataMax.
+//
+// Pré-requisito: vDataMin e vDataMax devem estar definidos no app.
+
+LET vDataMin = '01/01/2020';
+LET vDataMax = Date(Today());
+
+Calendario:
+LOAD
+    Date(Data)                              AS Data,
+    Year(Data)                              AS Ano,
+    'Q' & Ceil(Month(Data) / 3)            AS Trimestre,
+    Month(Data)                             AS Mes,
+    Week(Data)                              AS Semana,
+    Day(Data)                               AS Dia,
+    WeekDay(Data)                           AS DiaSemana,
+    If(WeekDay(Data) >= 5, 'Fim de Semana', 'Dia Útil') AS TipoDia
+;
+LOAD
+    Date(MakeDate(2020) + RowNo() - 1)     AS Data
+AUTOGENERATE
+    Date(vDataMax) - Date(vDataMin) + 1
+;

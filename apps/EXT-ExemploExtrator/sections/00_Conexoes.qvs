@@ -1,0 +1,4 @@
+// Seção de conexão do extrator.
+// Sempre a primeira seção — define a fonte de dados antes de qualquer LOAD.
+
+$(Must_Include=lib://CNXDIR-GitHub/includes/Conexoes.qvs)

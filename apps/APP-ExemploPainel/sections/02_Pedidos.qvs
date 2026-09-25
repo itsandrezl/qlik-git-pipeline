@@ -1,0 +1,12 @@
+// Carrega a tabela de fatos principal do painel.
+
+Pedidos:
+LOAD
+    id_pedido,
+    id_cliente,
+    Data_Formatada,
+    Status_Descricao,
+    valor_total,
+    Valor_Meta
+FROM [lib://QVD-GOLD/Pedidos.qvd] (qvd)
+;
