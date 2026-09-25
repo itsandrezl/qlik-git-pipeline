@@ -1,4 +1,4 @@
-# qlik-git-pipeline
+# Qlik Github - Pipeline
 
 Framework para versionar, documentar e gerenciar scripts de carga do Qlik Sense com Git — substituindo o modelo de edição direta no editor por um fluxo baseado em branches, Pull Requests e revisão antes de produção.
 
