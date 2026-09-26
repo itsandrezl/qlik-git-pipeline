@@ -1,8 +1,8 @@
-# Qlik Github - Pipeline
+# Qlik Sense - Github
 
 Framework para versionar, documentar e gerenciar scripts de carga do Qlik Sense com Git — substituindo o modelo de edição direta no editor por um fluxo baseado em branches, Pull Requests e revisão antes de produção.
 
-Desenvolvido e validado em ambiente corporativo com **38 aplicativos**, **602 abas** e **~42.600 linhas de script**.
+Desenvolvido e validado em ambiente corporativo com **235 aplicativos versionados**, **2.573 abas** e **~150 mil linhas de script**.
 
 ---
 
@@ -109,14 +109,34 @@ Chamado #12345 — vendedor sem região aparecia no total geral.
 
 ## Resultados em produção
 
-| Métrica                      | Antes                                 | Depois                                                 |
-| ----------------------------- | ------------------------------------- | ------------------------------------------------------ |
-| Histórico de alterações    | Comentário manual inconsistente      | Commit com autor, data e diff                          |
-| Reversão de erro             | Impossível                           | `git revert` em segundos                             |
-| Colaboração entre analistas | Apps duplicados + comparação manual | Branches + PR + diff automático                       |
-| Contexto por sessão de IA    | ~15 min de cópia manual              | Referência direta ao`.qvs`                          |
-| Backup do ecossistema         | ~10h de cópia aba a aba              | `git clone`                                          |
-| Apps versionados              | 0                                     | 38 (7 extratores · 14 transformadores · 17 painéis) |
+### Números principais
+
+| Indicador                                                         | Valor                                                                                                                        |
+| ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Apps com script versionado                                        | 235 de 337 no ambiente Qlik                                                                                                  |
+| Cobertura dos apps publicados                                     | 91% (235 de 258). Os 23 restantes ficaram de fora por decisão de escopo: backups, monitoramento nativo e uma cópia pessoal |
+| Cobertura do que estava no escopo definido                        | 100%                                                                                                                         |
+| Linhas de script versionadas                                      | ~150 mil linhas                                                                                                              |
+| Abas (seções) versionadas                                       | 2.573                                                                                                                        |
+| Áreas (streams) cobertas                                         | 40                                                                                                                           |
+| Tamanho médio por app                                            | ~640 linhas                                                                                                                  |
+| Apps já carregando o script direto do GitHub via`Must_Include` | 5                                                                                                                            |
+| Credenciais expostas encontradas nas ~150 mil linhas revisadas    | 0                                                                                                                            |
+| Pull Requests no projeto                                          | 30, desde 19/08/2026                                                                                                         |
+
+### Antes × Depois
+
+|                               | Antes                                                                              | Depois                                                                    |
+| ----------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Apps versionados              | 38                                                                                 | 235 (≈6x)                                                                |
+| Linhas versionadas            | ~42,6 mil                                                                          | ~150 mil (≈3,5x)                                                         |
+| Como incluir um app           | Cadastro manual, app por app                                                       | Descoberta automática no Qlik, com seleção por app                     |
+| Histórico de alterações    | Comentário manual "CONTROLE DE ALTERAÇÕES", ausente em cerca de metade dos apps | Git: quem mudou, o quê, quando e por quê, com revisão por Pull Request |
+| Reversão de erro             | Impossível                                                                        | `git revert` em segundos                                                |
+| Colaboração entre analistas | Apps duplicados + comparação manual                                              | Branches + PR + diff automático                                          |
+| Backup do ecossistema         | Horas de cópia aba a aba                                                          | `git clone`                                                             |
+
+> Estimativa (não medida): copiar manualmente as 2.573 abas hoje versionadas levaria algo em torno de 43 horas de trabalho.
 
 ---
 
